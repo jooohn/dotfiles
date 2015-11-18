@@ -18,6 +18,15 @@ autoload -Uz compinit
 autoload -Uz vcs_info
 
 # completion
+if [ -f ~/.dircolors ]; then
+    if type dircolors > /dev/null 2>&1; then
+        eval $(dircolors ~/.dircolors)
+    elif type gdircolors > /dev/null 2>&1; then
+        eval $(gdircolors ~/.dircolors)
+    fi
+else
+    export LS_COLORS='di=01;34:ln=01;35:so=01;32:pi=01;33:ex=01;31:bd=01;46;34:cd=01;43;34:su=01;41;30:sg=01;46;30:tw=01;42;30:ow=01;43;30'
+fi
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':compinstall' filename '~/.zshrc'
