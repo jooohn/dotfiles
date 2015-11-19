@@ -8,3 +8,5 @@ if [ -d ${SHHOME} ]; then
         done
     done
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
