@@ -16,4 +16,4 @@ alias vi='vim'
 alias v='vim'
 
 # eash tmux
-alias t='tmux a || tmux'
+alias t='tmux new-session -t 0 || tmux'
