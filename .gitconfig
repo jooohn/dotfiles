@@ -1,0 +1,22 @@
+[user]
+    name = jooohn
+    email = tomioka@talentio.com
+[core]
+    pager = less
+    editor = vim
+[alias]
+    co = checkout
+    br = branch
+    cm = commit
+    st = status
+    df = diff --color
+    dif = diff --color
+    di = diff --color
+    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+    ls    = log --graph --all --date=short --pretty=format:'%Cgreen%h %cd %Cred%cn %Creset%s %Cred%d'
+    merge = merge --no-ff
+[color]
+    ui = auto
+
+[ghq]
+    root = ~/src
