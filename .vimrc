@@ -88,6 +88,7 @@ set smartindent
 set nocindent
 set expandtab
 set tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType ruby setlocal ts=2 sw=2 sts=2 et
 
 " line break
 set wrap
