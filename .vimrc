@@ -1,71 +1,24 @@
+set rtp+=~/.fzf
+source ~/.vim/rc/dein.vim
+
+" clipboard
+set clipboard=unnamed
+
 " map
 map ; :
 nnoremap <silent> ref<CR> :source ~/.vimrc<CR>
 nnoremap <silent> qr :QuickRun<CR>
 
-nnoremap <silent> ff :FufFile<CR>
-nnoremap <silent> fb :FufBuffer<CR>
-nnoremap <silent> fl :FufLine<CR>
-nnoremap <silent> fub :FufBookmarkDir<CR>
-nnoremap <silent> fua :FufBookmarkDirAdd<CR>
+nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
+nnoremap <C-w>- <C-w>n
+nnoremap <C-w>\| <C-w>v
 
-nmap <ESC><ESC> :nohlsearch<CR>
 inoremap <C-a> <Esc>I
 inoremap <C-e> <Esc>A
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-h> <BackSpace>
 inoremap <C-d> <Del>
-inoremap ' ''<Left>
-inoremap '' ''
-inoremap " ""<Left>
-inoremap "" ""
-inoremap { {}<Left>
-inoremap {} {}
-inoremap {<Return> {<Return>}<Esc>==O
-inoremap ( ()<Left>
-inoremap () ()
-inoremap (<Return> (<Return>)<Esc>==O
-inoremap [ []<Left>
-inoremap [] []
-inoremap [<Return> [<Return>]<Esc>==O
-inoremap ( ()<Left>
-inoremap , ,<Space>
-inoremap ,<Return> ,<Return>
-inoremap ` ``<Left>
-inoremap `` ``
-
-if has('vim_starting')
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-scripts/L9'
-NeoBundle 'vim-scripts/FuzzyFinder'
-
-set rtp+=~/.fzf
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
 set backspace=indent,eol,start
 set wildmode=list:longest
@@ -87,8 +40,12 @@ set whichwrap=b,s,h,l,<,>,[,]
 set smartindent
 set nocindent
 set expandtab
-set tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType ruby setlocal ts=2 sw=2 sts=2 et
+set tabstop=2 shiftwidth=2 softtabstop=2
+
+autocmd FileType c set tabstop=8 shiftwidth=8 softtabstop=8
+autocmd FileType cpp set tabstop=8 shiftwidth=8 softtabstop=8
+autocmd FileType yacc set tabstop=8 shiftwidth=8 softtabstop=8
+autocmd BufRead,BufNewFile *.mjs setfiletype javascript
 
 " line break
 set wrap
@@ -125,5 +82,37 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-" fzf
-set rtp+=~/.fzf
+" Open git managed file in horizontal split
+nnoremap <silent> gj :call fzf#run({
+\   'source': "git ls-files",
+\   'dir': system('git rev-parse --show-toplevel'),
+\   'down': '40%',
+\   'sink': 'botright split' })<CR>
+
+nnoremap <silent> ff :FufFile<CR>
+nnoremap <silent> fb :FufBuffer<CR>
+nnoremap <silent> fl :FufLine<CR>
+nnoremap <silent> fub :FufBookmarkDir<CR>
+nnoremap <silent> fua :FufBookmarkDirAdd<CR>
+
+" Gtags
+nnoremap <silent> gt :Gtags
+nnoremap <silent> gd :GtagsCursor<CR>
+
+" Completion
+nnoremap <silent> <C-n> :cn<CR>
+nnoremap <silent> <C-p> :cp<CR>
+nnoremap <silent> <C-c> :ccl<CR>
+
+let g:quickrun_config = {
+      \   "cpp": {
+      \     "command": "clang++",
+      \     "cmdopt": "-std=c++11"
+      \   },
+      \  "idr": {
+      \    "command": "idris"
+      \  },
+      \  "rs": {
+      \     "command": "cargo run"
+      \  }
+      \ }
