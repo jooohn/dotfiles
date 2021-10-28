@@ -1,12 +1,12 @@
-SHHOME=${HOME}/.sh/
-
-# source .sh and .zsh files in ${SHHOME}
-if [ -d ${SHHOME} ]; then
-    for exp in '*.sh' '*.zsh'; do
-        for file in `find ${SHHOME} -name ${exp} -type f`; do
-            source ${file}
-        done
-    done
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Customize to your needs...
+if [[ -d "${ZDOTDIR:-$HOME}/.zsh" ]]; then
+  for file in ${ZDOTDIR:-$HOME}/.zsh/**/*.zsh; do
+    source "${file}"
+  done
+fi
+
