@@ -4,6 +4,7 @@ brew "ghq"
 brew "jq"
 brew "tfenv"
 brew "tree"
+brew "direnv"
 
 cask "bettertouchtool"
 cask "google-chrome"

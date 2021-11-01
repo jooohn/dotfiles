@@ -5,7 +5,7 @@ HERE=$(cd $(dirname $0) && pwd)
 cd ~
 
 # install brew packages
-for f in Bundlefile .gitconfig .tmux.conf .vim .vimrc .zsh .zshrc; do
+for f in Brewfile .gitconfig .tmux.conf .vim .vimrc .zsh .zshrc; do
   ln -s $HERE/$f .
 done
 
