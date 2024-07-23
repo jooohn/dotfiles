@@ -15,5 +15,5 @@ fzf-directory() {
 
 fzf-ghq-directory() {
     local src
-    src=$(ghq list | fzf) && cd "${HOME}/src/${src}"
+    src=$(ghq list | fzf) && cd "${GHQ_ROOT}/${src}"
 }

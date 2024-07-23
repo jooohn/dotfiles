@@ -18,3 +18,7 @@ alias v='vim'
 alias ff='fzf-file'
 alias fd='fzf-directory'
 alias repo='fzf-ghq-directory'
+
+alias ro='cd $(git rev-parse --show-toplevel)'
+alias today='cd $(today-create)'
+alias k='kubectl'

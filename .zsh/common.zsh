@@ -1,7 +1,7 @@
 export EDITOR=vim
 export GOPATH="${HOME}"
 export PATH="${PATH}:${GOPATH}/bin"
-export GHQ_ROOT="${GOPATH}/src"
+export GHQ_ROOT="${GOPATH}/ghq"
 
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info --ansi -1 -0 -m"
