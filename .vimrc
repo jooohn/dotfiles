@@ -80,7 +80,7 @@ set fileencodings=utf-8,sjis,euc-jp
 " color
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 " Open git managed file in horizontal split
 nnoremap <silent> gj :call fzf#run({
