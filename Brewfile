@@ -6,9 +6,6 @@ brew "tfenv"
 brew "tree"
 brew "direnv"
 
-cask "bettertouchtool"
-cask "google-chrome"
-cask "iterm2"
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
 
